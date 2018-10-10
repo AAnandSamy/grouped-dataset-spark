@@ -12,16 +12,14 @@
 # ===========  ===================  ============================================
 */
 package com.org.data
-
-import org.apache.log4j.Logger
 import org.apache.spark.sql._
-import scala.collection.JavaConverters._
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
 
 case class Country(country: String, states: String, city: String)
 
 object BuildRelationalyGroupedDatasets {
 
-   System.setProperty("hadoop.home.dir", "C:\\software\\hadoop");
 
   def main(args: Array[String]): Unit = {
 
@@ -32,6 +30,24 @@ object BuildRelationalyGroupedDatasets {
       .getOrCreate();
 
     import spark.implicits._
+
+  /*Read the source data*/
+    val df=spark
+      .read
+      .option("header",true)
+      .csv("groupedDataset.csv").as[Country]
+
+    df.show()
+
+  /*Collect each row data and form as Tuples2*/
+
+    val dfTuple = df.withColumn("JsonTuple", to_json(struct("*")) )
+
+    /*Group the the datasets by column name and collect the grouped set as a List*/
+
+    val gropedDS = dfTuple.groupBy("country")
+      .agg(collect_list("JsonTuple").cast("String") as "json_data")
+      .withColumn("country",struct("country").cast("String"))
 
 
 
