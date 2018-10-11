@@ -42,6 +42,8 @@ country | states | city | JsonTuple
 `dfTuple.groupBy("country")
        .agg(collect_list("JsonTuple").cast("String") as "json_data")
        .withColumn("country",struct("country").cast("String"))`
+       
+       
 country | json_data 
 --- | --- 
 |USA  |[{"country":"USA","states":"California","city":"San Francisco"},{"country":"USA","states":"California","city":"Los Angeles"},{"country":"USA","states":"Michiga","city":"Detroit"},{"country":"USA","states":"Missori","city":"St.Louis"}] |
