@@ -39,9 +39,9 @@ country | states | city | JsonTuple
 
 - Since we added the tuples into column(JsonTuple), now we can group them based on key column(country) and collect the Tuples as form for List.
 
-`dfTuple.groupBy("country")
+```dfTuple.groupBy("country")
        .agg(collect_list("JsonTuple").cast("String") as "json_data")
-       .withColumn("country",struct("country").cast("String"))`
+       .withColumn("country",struct("country").cast("String"))```
        
        
 country | json_data 
