@@ -39,9 +39,9 @@ country | states | city | JsonTuple
 
 - Since we added the tuples into column(JsonTuple), now we can group them based on key column(country) and collect the Tuples as form for List.
 
-```dfTuple.groupBy("country")
+`dfTuple.groupBy("country")
        .agg(collect_list("JsonTuple").cast("String") as "json_data")
-       .withColumn("country",struct("country").cast("String"))```
+       .withColumn("country",struct("country").cast("String"))`
        
        
 country | json_data 
@@ -50,3 +50,9 @@ country | json_data
 |IND  |[{"country":"IND","states":"Tamilnadu","city":"Chennai"},{"country":"IND","states":"Tamilnadu","city":"Trichy"},{"country":"IND","states":"Andhra pradesh","city":"Hyderabad"},{"country":"IND","states":"Andhra pradesh","city":"thirumala"},{"country":"IND","states":"Karnataka","city":"Bangalore"}]|
 
 - Now we have grouped dataset's , json_data is Json data so we apply projection and filter/agg the data
+
+```
+if (isAwesome){
+  return true
+}
+```
