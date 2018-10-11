@@ -34,7 +34,7 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
-        <finalName>ldap-streaming-log-${version}</finalName>
+        <finalName>grouped-dataset-${version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>
