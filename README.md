@@ -6,7 +6,7 @@
 
 #### country Datasets
 
-country | Less | Pretty
+country | states | city
 --- | --- | ---
 |    USA|    California|San Francisco|
 |    USA|    California|  Los Angeles|
