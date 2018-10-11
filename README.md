@@ -50,9 +50,3 @@ country | json_data
 |IND  |[{"country":"IND","states":"Tamilnadu","city":"Chennai"},{"country":"IND","states":"Tamilnadu","city":"Trichy"},{"country":"IND","states":"Andhra pradesh","city":"Hyderabad"},{"country":"IND","states":"Andhra pradesh","city":"thirumala"},{"country":"IND","states":"Karnataka","city":"Bangalore"}]|
 
 - Now we have grouped dataset's , json_data is Json data so we apply projection and filter/agg the data
-
-```
-if (isAwesome){
-  return true
-}
-```
